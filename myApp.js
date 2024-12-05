@@ -1,5 +1,12 @@
 const express = require('express');
+const helmet = require('helmet');  // Correct import
 const app = express();
+
+// Use helmet to secure your app, including the frameguard middleware
+app.use(helmet());  // This enables all default helmet protections, including frameguard
+
+// Optionally, you can configure frameguard explicitly
+app.use(helmet.frameguard({ action: 'DENY' }));
 
 
 
